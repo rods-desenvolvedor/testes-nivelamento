@@ -61,7 +61,7 @@ def main():
         href = link["href"]
         if any(nome in texto for nome in NOMES_ANEXOS) and href.endswith(".pdf"):
             for nome in NOMES_ANEXOS:
-                if nome in texto:
+                if nome in texto and nome not in pdfs_encontrados:
                     url_completa = href if href.startswith("http") else f"https://www.gov.br{href}"
                     pdfs_encontrados[nome] = url_completa
 
