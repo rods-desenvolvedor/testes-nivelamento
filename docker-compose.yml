@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:15
+    container_name: container-banco-teste-nivelamento
+    restart: always
+    environment:
+      POSTGRES_DB: teste-nivelamento
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5431"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    container_name: container-adminer-banco-teste-nivelamento
+    restart: always
+    ports:
+      - "8081:8080"
+
+volumes:
+  pgdata:
